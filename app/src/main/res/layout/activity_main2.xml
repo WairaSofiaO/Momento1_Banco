@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main2Activity"
+    android:orientation="vertical">
+
+    <!--Usuario-->
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="30dp"
+        android:text="Usuario conectado:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tvusuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#673AB7" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="Nro Cuenta" />
+    <TextView
+        android:textColor="#673AB7"
+        android:layout_marginHorizontal="30dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tvnrocuenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="Saldo" />
+
+    <TextView
+        android:textColor="#673AB7"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="30dp"
+        android:id="@+id/tvsaldo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/btncrearcuenta"
+        android:text="Crear Cuenta"
+        android:layout_gravity=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btntransaccion"
+        android:text="Transaccion"
+        android:layout_gravity=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

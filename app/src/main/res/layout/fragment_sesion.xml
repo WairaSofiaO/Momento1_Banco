@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SesionFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conexión al Sistema"
+        android:gravity="center_horizontal"
+        />
+    <!--Usuario-->
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Usuario"
+        android:gravity="center_horizontal"
+        />
+    <EditText
+        android:id="@+id/etusr"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <!--Clave-->
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clave"
+        android:gravity="center_horizontal"
+        />
+    <EditText
+        android:id="@+id/etclave"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:inputType="numberPassword"
+        />
+
+    <!--Boton iniciar sesion-->
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btniniciarsesion"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Inciar Sesión"
+        android:layout_gravity="center_horizontal"
+        />
+    <!--Boton resgistrar-->
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btnregistrar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/tvregistrar"
+        android:textColor="#0020FF"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Registrese AQUÍ"
+        />
+
+</LinearLayout>
