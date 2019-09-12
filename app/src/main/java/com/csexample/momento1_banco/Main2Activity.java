@@ -1,12 +1,17 @@
 package com.csexample.momento1_banco;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
     //Constantes que van a recibir las variables de SesionFragment
@@ -32,7 +37,7 @@ public class Main2Activity extends AppCompatActivity {
             String musuario = parametros.getString("musr");
             rusuario.setText(rusuario.getText().toString()+" "+musuario);
         }*/
-        String midcliente = getIntent().getStringExtra("idcliente");
+        final String midcliente = getIntent().getStringExtra("idcliente");
         String mnombre = getIntent().getStringExtra("nombre");
         String mnrocuenta = getIntent().getStringExtra("nrocuenta");
         String msaldo = getIntent().getStringExtra("saldo");
@@ -41,16 +46,20 @@ public class Main2Activity extends AppCompatActivity {
         rnrocuenta.setText(rnrocuenta.getText().toString()+" "+mnrocuenta);
         rsaldo.setText(rsaldo.getText().toString()+" "+msaldo);
 
+        Toast.makeText(getApplicationContext(),"ID usuario "+midcliente,Toast.LENGTH_SHORT).show();
+
+        /* BOTONES
         crearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cliente usua = new cliente();
-                Intent intencion = new Intent(Main2Activity.this,CrearCuenta.class);
-                intencion.putExtra(CrearCuenta.idcliente,usua.getIdcliente()); //Mandar id cliente a crear cuenta
-                startActivity(intencion);
+                //pasar a la actividad Crear Cuenta
+                Intent conectado = new Intent(Main2Activity.this,CrearCuenta.class);
+                //El constructor tiene 2 parametros, de donde viene (MainActivity), y a donde va (Main2Activity)
+                conectado.putExtra("ridcliente",midcliente); //El metodo PutExtra manda la variable eusuario y la recibe la variable rusuario
+                startActivity(conectado);
             }
         });
-        /*
+
         transaccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,5 +69,35 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
         */
+    }
+
+    //MENU
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //activar el menú en esta actividad
+        //getMenuInflater().inflate(R.menu.ppal,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.ppal,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case  R.id.macrearcuenta:
+                //startActivity(new Intent(Main2Activity.this,CrearCuenta.class));
+                final String midcliente = getIntent().getStringExtra("idcliente");
+                Intent conectado = new Intent(Main2Activity.this,CrearCuenta.class);
+                //El constructor tiene 2 parametros, de donde viene (MainActivity), y a donde va (Main2Activity)
+                conectado.putExtra("ridcliente",midcliente); //El metodo PutExtra manda la variable eusuario y la recibe la variable rusuario
+                startActivity(conectado);
+                finish();//Este metodo cierra la actividad y se vuelve a donde la llamaron
+                break;
+
+            case  R.id.matransaccion:
+                startActivity(new Intent(Main2Activity.this,Transaccion.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

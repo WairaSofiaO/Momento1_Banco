@@ -24,37 +24,36 @@ import java.util.Map;
 
 public class CrearCuenta extends AppCompatActivity {
 
-    //Constantes que van a recibir las variables de Main2Activity
-    public static final String idcliente="idcliente";
-    public static final String saldo="saldo";
-    public static final String nrocuenta="nrocuenta";
-
-    //TextView nrocuentaCC;
-    EditText saldoInicialCC;
+    //Constantes que van a recibir las variables de SesionFragment
+    //public static final String idcliente="idcliente";
+    EditText ccsaldoInicial;
     Button guardarcuenta;
+    TextView ccidcliente;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_cuenta);
 
         //nrocuentaCC = findViewById(R.id.tvnrocuenta);
-        saldoInicialCC = findViewById(R.id.etsaldoInicialCCuenta);
+        ccidcliente = findViewById(R.id.tvccidcliente);
+        ccsaldoInicial = findViewById(R.id.etccsaldoInicial);
         guardarcuenta = findViewById(R.id.btnguardarcuenta);
 
-        //Recibir parametros de Main2activity
-        final String midcliente = getIntent().getStringExtra("idcliente");
-        //rnrocuenta.setText(rnrocuenta.getText().toString()+" "+mnrocuenta);
-        Toast.makeText(getApplicationContext(), "id:"+midcliente, Toast.LENGTH_SHORT).show();
+        //Recibir parametros: idcliente
+        final String idcliente = getIntent().getStringExtra("ridcliente");
+        ccidcliente.setText(idcliente); //txtusuario es el id del edit text en el Activity main que se le manda la variable usuario
 
         guardarcuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Guardando...", Toast.LENGTH_SHORT).show();
+                RegistrarCuenta("http://192.168.1.55:82/ClaseServiciosWebAndroidPHP/ActividadBanco/Cuenta/CCuenta.php?idcliente="+idcliente+"&saldo="+ccsaldoInicial.getText().toString());
 
-                Toast.makeText(getApplicationContext(), "Guardando cuenta...", Toast.LENGTH_SHORT).show();
-                RegistrarCuenta("http://192.168.1.55:82/ClaseServiciosWebAndroidPHP/ActividadBanco/Cuenta/CCuenta.php?idcliente="+midcliente+"&saldo"+saldoInicialCC.getText().toString());
 
             }
         });
+
     }
 
     private void RegistrarCuenta(String URL) {
@@ -75,7 +74,8 @@ public class CrearCuenta extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> parametros=new HashMap<String, String>();
-                parametros.put("saldo",saldoInicialCC.getText().toString());
+                parametros.put("idcliente",ccidcliente.getText().toString());
+                parametros.put("saldo",ccsaldoInicial.getText().toString());
 
                 return parametros;
             }
@@ -83,4 +83,5 @@ public class CrearCuenta extends AppCompatActivity {
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
 }

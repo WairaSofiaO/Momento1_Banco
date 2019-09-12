@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/maoperaciones"
+        android:title="Operaciones"
+        >
+        <menu>
+            <item
+                android:id="@+id/macrearcuenta"
+                android:title="Agregar Cuenta"
+                >
+            </item>
+            <item
+                android:id="@+id/matransaccion"
+                android:title="Transaccion"
+                >
+            </item>
+        </menu>
+    </item>
+    <!--
+    <item
+        android:id="@+id/mherramientas"
+        android:title="Herramientas"
+        >
+    </item>
+    <item
+        android:id="@+id/mcamara"
+        android:title="Camara"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_camera_alt_black_24dp"
+        >
+    </item>
+    <item
+        android:id="@+id/mbuscar"
+        android:title="Buscar"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_search_black_24dp"
+        >
+    </item>
+    -->
+</menu>
