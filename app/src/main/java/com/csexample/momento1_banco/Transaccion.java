@@ -1,10 +1,19 @@
 package com.csexample.momento1_banco;
 
-class Transaccion {
-    private String nrotrans;
+class Transaccion {    private String nrotrans;
     private String nrocuenta_orig;
     private String nrocuenta_dest;
     private String fecha;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    private String tipo;
     private String valor;
 
     public String getNrotrans() {

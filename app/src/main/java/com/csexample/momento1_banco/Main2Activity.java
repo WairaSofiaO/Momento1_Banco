@@ -30,14 +30,12 @@ public class Main2Activity extends AppCompatActivity {
         rusuario = findViewById(R.id.tvusuario);
         rsaldo = findViewById(R.id.tvsaldo);
         rnrocuenta = findViewById(R.id.tvnrocuenta);
-        crearCuenta = findViewById(R.id.btncrearcuenta);
-        transaccion = findViewById(R.id.btntransaccion);
         /*Bundle parametros = this.getIntent().getExtras();
         if(parametros !=null){
             String musuario = parametros.getString("musr");
             rusuario.setText(rusuario.getText().toString()+" "+musuario);
         }*/
-        final String midcliente = getIntent().getStringExtra("idcliente");
+
         String mnombre = getIntent().getStringExtra("nombre");
         String mnrocuenta = getIntent().getStringExtra("nrocuenta");
         String msaldo = getIntent().getStringExtra("saldo");
@@ -46,7 +44,7 @@ public class Main2Activity extends AppCompatActivity {
         rnrocuenta.setText(rnrocuenta.getText().toString()+" "+mnrocuenta);
         rsaldo.setText(rsaldo.getText().toString()+" "+msaldo);
 
-        Toast.makeText(getApplicationContext(),"ID usuario "+midcliente,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"ID usuario "+midcliente,Toast.LENGTH_SHORT).show();
 
         /* BOTONES
         crearCuenta.setOnClickListener(new View.OnClickListener() {
@@ -86,16 +84,19 @@ public class Main2Activity extends AppCompatActivity {
         switch (item.getItemId()){
             case  R.id.macrearcuenta:
                 //startActivity(new Intent(Main2Activity.this,CrearCuenta.class));
-                final String midcliente = getIntent().getStringExtra("idcliente");
+
                 Intent conectado = new Intent(Main2Activity.this,CrearCuenta.class);
-                //El constructor tiene 2 parametros, de donde viene (MainActivity), y a donde va (Main2Activity)
-                conectado.putExtra("ridcliente",midcliente); //El metodo PutExtra manda la variable eusuario y la recibe la variable rusuario
+                final String midcliente = getIntent().getStringExtra("idcliente");
+                conectado.putExtra("ridcliente",midcliente);
                 startActivity(conectado);
-                finish();//Este metodo cierra la actividad y se vuelve a donde la llamaron
+
                 break;
 
             case  R.id.matransaccion:
-                startActivity(new Intent(Main2Activity.this,Transaccion.class));
+                Intent conectado1 = new Intent(Main2Activity.this,CrearTransaccion.class);
+                final String midcliente1 = getIntent().getStringExtra("idcliente");
+                conectado1.putExtra("ridcliente",midcliente1);
+                startActivity(conectado1);
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -59,14 +59,15 @@ public class SesionFragment extends Fragment implements Response.Listener<JSONOb
             }
         });
         return vista;
-
     }
-
     private void iniciarsesion() {
         Toast.makeText(getContext(),"Iniciando sesion...",Toast.LENGTH_SHORT).show();
         //String url = "http://192.168.1.62/serviciosandroidphp/sesion.php?idcliente="+idcliente.getText().toString()+"&contrasena="+contrasena.getText().toString();
         //EN CASA: IP 192.168.1.63, CARPETA BANCO: ClaseServiciosWebAndroidPHP/ActividadBanco
-        String url = "http://192.168.1.55:82/ClaseServiciosWebAndroidPHP/ActividadBanco/sesion.php?idcliente="+idcliente.getText().toString()+"&contrasena="+contrasena.getText().toString();
+        //String url = "http://192.168.1.55:82/ClaseServiciosWebAndroidPHP/ActividadBanco/sesion.php?idcliente="+idcliente.getText().toString()+"&contrasena="+contrasena.getText().toString();
+        //String url = "http://172.16.58.128:8081/ActividadBanco/sesion.php?idcliente="+idcliente.getText().toString()+"&contrasena="+contrasena.getText().toString();
+        //192.168.1.55
+        String url = "http://192.168.1.55:82/ActividadBanco/sesion.php?idcliente="+idcliente.getText().toString()+"&contrasena="+contrasena.getText().toString();
         //ClaseServiciosWebAndroidPHP/ActividadBanco/sesion.php?idcliente=111&contrasena=222
         jrq = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         rq.add(jrq);
@@ -111,7 +112,6 @@ public class SesionFragment extends Fragment implements Response.Listener<JSONOb
         //Intent intentCrearCuenta = new Intent(getContext(),CrearCuenta.class);
         //intentCrearCuenta.putExtra(CrearCuenta.idcliente,usua.getIdcliente()); //Mandar id cliente a crear cuenta
         //startActivity(intentCrearCuenta);
-
     }
 //---------(6.1)
 }

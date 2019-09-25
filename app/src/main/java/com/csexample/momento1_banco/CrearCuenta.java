@@ -47,10 +47,11 @@ public class CrearCuenta extends AppCompatActivity {
         guardarcuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Guardando...", Toast.LENGTH_SHORT).show();
-                RegistrarCuenta("http://192.168.1.55:82/ClaseServiciosWebAndroidPHP/ActividadBanco/Cuenta/CCuenta.php?idcliente="+idcliente+"&saldo="+ccsaldoInicial.getText().toString());
 
-
+                //RegistrarCuenta("http://192.168.1.55:82/ClaseServiciosWebAndroidPHP/ActividadBanco/Cuenta/CCuenta.php?idcliente="+idcliente+"&saldo="+ccsaldoInicial.getText().toString());
+                RegistrarCuenta("http://192.168.1.55:82/ActividadBanco/Cuenta/CCuenta.php?idcliente="+idcliente+"&saldo="+ccsaldoInicial.getText().toString());
+                Toast.makeText(getApplicationContext(), "Cuenta guardada...", Toast.LENGTH_SHORT).show();
+                finish();//Este metodo cierra la actividad y se vuelve a donde la llamaron
             }
         });
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +8,13 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:text="Transacciones"
+        android:text="Transacciones del usuario:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/tvctidcliente"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"/>
@@ -20,7 +25,10 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"/>
     <EditText
+        android:hint="1"
+        android:autofillHints="1"
         android:id="@+id/etcuentaorig"
+        android:inputType="number"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -31,6 +39,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"/>
     <EditText
+        android:inputType="number"
         android:id="@+id/etcuentadest"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -47,7 +56,8 @@
         android:layout_width="306dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:hint="transferencia/consignacion" />
+        android:gravity="center"
+        android:hint="transf/consig" />
     <TextView
         android:text="Valor"
         android:layout_width="match_parent"

@@ -42,14 +42,15 @@ public class RCliente extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             Toast.makeText(getApplicationContext(), "Entrando...", Toast.LENGTH_SHORT).show();
-            RegistrarCliente("http://192.168.1.55:82/ClaseServiciosWebAndroidPHP/ActividadBanco/Cliente/CCliente.php?idcliente="+idclienter.getText().toString()+"&nombre="+nombrer.getText().toString()+"&contrasena="+contrasenar.getText().toString()+"&direccion="+direccionr.getText().toString()+"&telefono="+telefonor.getText().toString());
+            //RegistrarCliente("http://192.168.1.55:82/ClaseServiciosWebAndroidPHP/ActividadBanco/Cliente/CCliente.php?idcliente="+idclienter.getText().toString()+"&nombre="+nombrer.getText().toString()+"&contrasena="+contrasenar.getText().toString()+"&direccion="+direccionr.getText().toString()+"&telefono="+telefonor.getText().toString());
+            //RegistrarCliente("http://172.16.58.128:8081/ActividadBanco/Cliente/CCliente.php?idcliente="+idclienter.getText().toString()+"&nombre="+nombrer.getText().toString()+"&contrasena="+contrasenar.getText().toString()+"&direccion="+direccionr.getText().toString()+"&telefono="+telefonor.getText().toString()+"&saldo="+saldor.getText().toString());
+            RegistrarCliente("http://192.168.1.55:82/ActividadBanco/Cliente/CCliente.php");
             }
         });
         iniciarsesionr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intencion = new Intent(RCliente.this,SesionFragment.class);
-                startActivity(intencion);
+                finish();
             }
         });
     }
